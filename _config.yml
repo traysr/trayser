@@ -1,0 +1,23 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+plugins:             [jekyll-paginate]
+
+# Setup
+title:               tRAYser.net
+tagline:             ''
+description:         'Made by <a href="https://twitter.com/trayser" target="_blank">@trayser</a>.'
+url:                 http://trayser.net
+baseurl:             ''
+paginate:            5
+tintcolor:          "#9A2F00"
+
+# About/contact
+author:
+  name:              Satyakam Khadilkar
+  url:               https://twitter.com/trayser
+  email:             raytracer@trayser.net
+
+# Custom vars
+version:             1.0.0
