@@ -3,7 +3,7 @@ layout: post
 title: USDZ Files
 ---
 
-<a href='/assets/usd/cube.usdz' rel='usdz'>
+<a href='/assets/usd/cube.usdz' rel='ar'>
 <img src='/assets/usd/cube.jpeg' />
 </a>
 
