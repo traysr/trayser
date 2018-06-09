@@ -5,13 +5,13 @@ permalink:           pretty
 plugins:             [jekyll-paginate]
 
 # Setup
-title:               tRAYser.net
+title:               trayser.net
 tagline:             ''
 description:         'Made by <a href="https://twitter.com/trayser" target="_blank">@trayser</a>.'
 url:                 http://trayser.net
 baseurl:             ''
 paginate:            5
-tintcolor:          "#9A2F00"
+tintcolor:          "#206888"
 
 # About/contact
 author:
