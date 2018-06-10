@@ -1,65 +1,49 @@
 ---
 layout: post
-title: USDZ Files
+title: Augmented Reality Part I. usdz file format
 ---
 
-<a href='/assets/usd/cube.usdz' rel='ar'>
-<img src='/assets/usd/cube.jpeg' />
+_View this post on iOS 12 device to put the apple on your desk._
+
+<a href='/assets/usd/apple.usdz' rel='ar'>
+<img src='/assets/usd/apple.jpeg' />
 </a>
 
-Apple announched at WWDC 2018 that they are going to support _usdz_ file format throughout the system. This is the first time a 3d file format is supported system wide. I think this is a very good opportunity for modelers to show of their talent that is guaranteed to be supported throughout the iOS ecosystem. I hope the support will be extended to macOS as well.
+Apple announced at _WWDC 2018_ that they will support Universal Scene Description, usdz file format on iOS 12. An _Augmented Reality_ viewer for usdz files will be available system-wide in Safari, Messages, Mail, News and Notes. The viewer allows you to inspect and place digital 3D objects in real world.
 
-A usdz file is a zero compression, unencrypted zip archive. The [spec](https://graphics.pixar.com/usd/docs/Usdz-File-Format-Specification.html) is available on Pixar's website. This is just a fancy way of saying that usdz file is a collection of files containing the mesh as well as related textures packed together in a way so that they are easily accessible to the viewer.
+The announcement is part of Apple’s big push on AR. In addition to usdz support, there are enhancements to ARKit to help developers make AR better. This new focus comes as a surprise to many. While Apple reserved this iOS release mostly for performance fixes, why did they drop in this hardly used feature? Although I am personally excited to play with the usdz viewer in iOS 12 beta - due to my affinity for 3D and CGI - my family was perplexed on why placing knick-knacks in real world without any game play behind them would be so exciting. We know there is value of AR in gaming, but what could be the reason behind allowing sharing independent 3D objects freely in the system? 
 
-The easiest way to create a usdz file is by using the _usdz_converter_ tool available with XCode 10 beta. At minimum, you will need start with a _Wavefront Obj_ file. 
+I think the current push is just step zero in a multi-step plan for AR, This is very unlike Apple. They do not generally share something in the wild until it is sufficiently mature. However, Apple has a good reason for pushing this right now as the success of AR depends on many other steps outside of Apple’s control and they certainly do not want to miss this bus.
 
-Here is a same obj representing a simple cube.
+_A little disclaimer here. I am not an Apple pundit. I do not have any sources to confirm and at times this discussion will feel like going in science fiction realm, but thats okay. Take it as a work of fiction if you want_
 
-```
-# cube.obj
-#
-  
-v  -0.5  -0.5  -0.5
-v  -0.5  -0.5   0.5
-v  -0.5   0.5  -0.5
-v  -0.5   0.5   0.5
-v   0.5  -0.5  -0.5
-v   0.5  -0.5   0.5
-v   0.5   0.5  -0.5
-v   0.5   0.5   0.5
+The usdz viewer in its current version is very basic. It doesn’t do more than let you place a stationary or animated object in real world. The animation is fixed and we cannot interact with it. Apple is emphasizing the use of _Physically Based Rendering_, (PBR) textures to make objects look like real world objects. Looks like Apple imagines people sharing some very realistic looking objects to be placed in real world. At the moment the most obvious use cases could be little knick-knacks, small sculptures, figurines, bobble head dolls, action figures or little desk toys such as [Newton’s Cradle][1], or [Drinking bird][2]. 
 
-vn  0.0  0.0  1.0
-vn  0.0  0.0 -1.0
-vn  0.0  1.0  0.0
-vn  0.0 -1.0  0.0
-vn  1.0  0.0  0.0
-vn -1.0  0.0  0.0
+Important thing to note here: Apple [moved away from _skeomorphism_][3] in its user interface, but they are stressing on making these virtual objects appear real. I think the reason is same as the reason why the _chose skeomorphism_ in their initial releases of iOS. The purpose of skeuomorphic UI was to help users transition to digital realm. It was a more comfortable way to get people to use User Interfaces the same way they used real world objects such as calculators and post-it notes. It also made that friendly, visceral connection between users and UI that was necessary for its long time survival. I believe the AR objects will go through the same cycle. In my initial play with the viewer, it did feel at times that I was dealing with real objects. The feeling was something similar to a [_Rubber Hand Illusion_][4], where a slow gradual introduction of virtual object felt like interacting with a real object after some time. At times I went to grab the virtual object by placing the hand directly on it in real world instead of touching the iPhone screen. This visceral connection is a sensitive subject. It has to be handled delicately. If done right, it will make people really want to play with AR. However if it fails in [_Uncanny Valley_][5] people would move away from it.
 
-vt 0.0      0.0
-vt 0.25     0.0
-vt 0.5      0.0
-vt 0.0      0.25
-vt 0.25     0.25
-vt 0.5      0.25
-vt 0.0      0.5
-vt 0.25     0.5
-vt 0.5      0.5
-vt 0.0      0.75
-vt 0.25     0.75
-vt 0.5      0.75
+Why would Apple be so concerned about the success of these knick-knacks? The answer points us to the next step.
 
-g cube_box
-f  1/4/4  5/5/4  6/2/4 
-f  1/4/4  6/2/4  2/1/4 
-f  3/5/3  8/3/3  7/6/3 
-f  3/5/3  4/2/3  8/3/3 
-f  1/5/2  7/7/2  5/8/2
-f  1/5/2  3/8/2  7/7/2 
-f  2/5/1  6/6/1  8/9/1 
-f  2/5/1  8/9/1  4/8/1 
-f  1/7/6  4/11/6  3/10/6 
-f  1/7/6  2/8/6  4/11/6 
-f  5/9/5  7/12/5  8/11/5 
-f  5/9/5  8/11/5  6/8/5 
+### Object Store
+Most of the consumer 3D digital model marketplace today - leaving aside engineering and scientific models - contains models created for movie and gaming industry. These models are means to an end and not the objects made purely for viewing on their own, like sculptures and figurines or action figures. I think by providing a system wide viewer, Apple is hoping to create a consumer marketplace for 3D objects.
 
-```
+However any marketplace cannot survive unless there is a way to _sell_. In its current version, the usdz file is just a file, like jpeg or pdf. Anyone can freely copy and share them. Even if an app charges a fee to create these files, once created, they can be easily shared with others. I think the future versions of either the usdz file format or the usdz viewer will solve the problem. It doesn’t make any sense to create a way to sell these objects today if there is no demand. However, once people are into sharing, Apple will figure out a way of letting people buy and sell them.
+
+The next question then is why would anyone buy digital action figures? AR makes these objects more appealing, in the sense that you can place your virtual action figures on your real office desk, but it won’t work if you need to view them through an iPhone or iPad screen. That would be very awkward way to admire your collection of superheros. Collectable visual objects whose sole purpose is that we look at them, need a permanent space to place them. Thats why people buy real paintings and sculptures for high price, rather than collecting their digital scanned copies. However, if we can place these digital copies in a permanent location outside of our iPhone, that might be acceptable, since the real quality of these object is their visual form, and not its weight or material.  It may be possible to do this, and it takes us to step two.
+
+### Apple Glasses
+I know the term _Apple Glasses_ brings back the memory of _Google Glass_ and we might easily dismiss this as a tried and failed technology. However, I think the problem with Google Glass was not with the concept, but with the execution. Normally speaking, Google did the same thing as I am saying here for Apple. They put a not so mature technology in the hands of developers with the hope of developers coming up with useful applications that will make the product attractive, something very similar to Apple’s plans here for AR. However, the difference here is between pre-mature software and pre-mature hardware. It is easier to provide pre-mature software in developer’s hands (iOS betas for example), but it is not wise to release a beta version of a hardware. I think Apple will wait until they have perfected their version of glasses before even announcing them.
+
+I also think Apple’s version of glasses will be different than google. They will be advertised to be used in focused environments such as office desk, classroom, lab or kitchen counter. I don’t expect they will be advertised to be worn while walking or driving, or riding a subway, where a Siri based pure audio interface will be sufficient. The idea will be that when you get down to work, or sit down on your sofa in living room, you wear your Apple Glasses and you will have all your virtual objects in the same place you left them earlier, just like real world objects.
+
+This still doesn’t make complete sense however. Why would anyone pay big price for Apple glasses just to watch their collection of knick-knacks on their desk, or sculptures and paintings in their living room? This takes us to the next step, and I know we are now definitely in Science Fiction territory. However if successful, it could be the next big thing after apps.
+
+### Object Apps.
+Lets take a step back and take a closer look at concept of apps, or even the good old desktop applications. Apps or application are 2D rectangular screens that help you perform a task. They are made to fit in fixed rectangular spaces. Most of the time the space required for the content is more than the enclosing rectangle, and we have imagined various workarounds for this by providing scrolling views, tabs, etc. However, this is not the only way of getting things done. Apps or applications are just a small blip on the realm of human technology, and not the only way to solve a problem. If our devices are not limited to rectangular digital screens, the apps can take any shape and size. I would call them _Object Apps_ for the lack of any better terms. These will be functional objects, something more than knick-knacks and perform some functions. They may start looking like real world objects, but could transform into more minimal designs in future, once we get comfortable with seeing lists and text floating in air. However, that may not be ultimate goal, as lists and text ultimately serve some other purpose. Part of the problem with be solved through audio interfaces such as Siri and the other part, where we visual information or representation is needed, will be solved through AR. Just as digitally created audio seamlessly mixes with real world sound, digitally created visual representations will seamlessly mix with real visual world.
+
+This world of science fiction is far away from now, and there is no guarantee we will see it. Other technologies, priorities, politics can definitely change it. But if the plan is to get to that future, a system wide 3d file format with AR is the first step.
+
+[1]:	https://en.wikipedia.org/wiki/Newton%27s_cradle
+[2]:	https://en.wikipedia.org/wiki/Drinking_bird
+[3]:	https://www.cultofmac.com/246312/jony-ive-explains-why-he-decided-to-gut-skeuomorphism-out-of-ios/
+[4]:	https://www.theguardian.com/science/2016/oct/20/rubber-hand-illusion-reveals-how-the-brain-understands-the-body
+[5]:	https://en.wikipedia.org/wiki/Uncanny_valley
