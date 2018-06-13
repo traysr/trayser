@@ -8,7 +8,7 @@ plugins:             [jekyll-paginate]
 title:               trayser.net
 tagline:             ''
 description:         'Made by <a href="https://twitter.com/trayser" target="_blank">@trayser</a>.'
-url:                 http://trayser.net
+url:                 http://www.trayser.net
 baseurl:             ''
 paginate:            5
 tintcolor:          "#206888"
